@@ -59,6 +59,24 @@
 #define CA4 LCTL_T(KC_5)
 #define SA4 LSFT_T(KC_6)
 
+// Additional home row mods for layer 2 right
+#define SJ2 RSFT_T(KC_LEFT)
+#define CK2 RCTL_T(KC_DOWN)
+#define AL2 RALT_T(KC_UP)
+#define GQ2 RGUI_T(KC_RIGHT)
+
+// Additional home row mods for layer 3 left
+#define GA3 LGUI_T(KC_COLN)
+#define AA3 LALT_T(KC_DLR)
+#define CA3 LCTL_T(KC_PERC)
+#define SA3 LSFT_T(KC_CIRC)
+
+// Additional home row mods for layer 4 right
+#define SJ4 RSFT_T(KC_TRANSPARENT)
+#define CK4 RCTL_T(KC_TRANSPARENT)
+#define AL4 RALT_T(KC_TRANSPARENT)
+#define GQ4 RGUI_T(KC_TRANSPARENT)
+
 // Thumb key aliases
 #define TAB1 LT(1, KC_TAB)
 #define ENT2 LT(2, KC_ENT)
@@ -72,46 +90,65 @@ enum combo_events {
     COMBO_CAPS,
 };
 
-const uint16_t PROGMEM combo_esc[] = {KC_G, KC_H, COMBO_END};
-const uint16_t PROGMEM combo_del[] = {KC_Z, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM combo_esc[]  = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM combo_del[]  = {KC_Z, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM combo_caps[] = {KC_B, KC_N, COMBO_END};
-const uint16_t PROGMEM combo_l_c[] = {KC_L, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_l_c[]  = {KC_L, KC_C, COMBO_END};
 
 combo_t key_combos[] = {
-    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
-    [COMBO_DEL] = COMBO(combo_del, KC_DEL),
+    [COMBO_ESC]  = COMBO(combo_esc, KC_ESC),
+    [COMBO_DEL]  = COMBO(combo_del, KC_DEL),
     [COMBO_CAPS] = COMBO(combo_caps, KC_CAPS),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
-        KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,    KC_NO,
-        KC_NO, GA,      AA,      CA,      SA,      KC_G,         KC_H,    SJ,      CK,      AL,       GQ,      KC_NO,
-        KC_NO, KC_Z,    XA,      KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, DA,       KC_SLSH, KC_NO,
+        KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,  KC_O,    KC_P,   KC_NO,
+
+        KC_NO, GA,      AA,      CA,      SA,      KC_G,         KC_H,    SJ,      CK,    AL,      GQ,     KC_NO, KC_NO,
+
+        KC_Z,  XA,      KC_C,    KC_V,    KC_B,    KC_N,         KC_M,    KC_COMM, DA,    KC_SLSH, KC_NO,
+
                                  KC_NO,   TAB1,    ENT2,         SPC3,    BSPC4,   KC_NO
     ),
+
     [1] = LAYOUT_split_3x6_3(
-        KC_NO, KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-        KC_NO, KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO,        KC_NO,   SJ1,     CK1,     AL1,      GQ1,     KC_NO,
-        KC_NO, KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+        KC_NO, KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO,        KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
+        KC_NO, KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO,        KC_NO,   SJ1,     CK1,   AL1,     GQ1,    KC_NO,
+
+        KC_NO, KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO,        KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
                                  KC_NO,   KC_NO,   KC_NO,        KC_NO,   KC_NO,   KC_NO
     ),
+
     [2] = LAYOUT_split_3x6_3(
-        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_NO,   KC_PSCR, KC_NO,   KC_NO,    KC_NO,   KC_NO,
-        KC_NO, GA2,     AA2,     CA2,     SA2,     KC_NO,        KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,   KC_NO,
-        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_HOME, KC_NO,   KC_NO,   KC_NO,    KC_END,  KC_NO,
+        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_NO,   KC_PSCR, KC_NO, KC_NO,   KC_NO,  KC_NO,
+
+        KC_NO, GA2,     AA2,     CA2,     SA2,     KC_NO,        SJ2,     CK2,     AL2,   GQ2,     KC_NO,  KC_NO,
+
+        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_HOME, KC_NO,   KC_NO, KC_NO,   KC_END, KC_NO,
+
                                  KC_NO,   KC_NO,   KC_NO,        KC_NO,   KC_NO,   KC_NO
     ),
+
     [3] = LAYOUT_split_3x6_3(
-        KC_NO, KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,      KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-        KC_NO, KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,      KC_NO,   SJ3,     CK3,     AL3,      GQ3,     KC_NO,
-        KC_NO, KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,      KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+        KC_NO, KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,      KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
+        KC_NO, GA3,     AA3,     CA3,     SA3,     KC_PLUS,      KC_NO,   SJ3,     CK3,   AL3,     GQ3,    KC_NO,
+
+        KC_NO, KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,      KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
                                  KC_NO,   KC_RPRN, KC_UNDS,      KC_NO,   KC_NO,   KC_NO
     ),
+
     [4] = LAYOUT_split_3x6_3(
-        KC_NO, KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,      KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-        KC_NO, GA4,     AA4,     CA4,     SA4,     KC_EQL,       KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-        KC_NO, KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,      KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+        KC_NO, KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,      KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
+        KC_NO, GA4,     AA4,     CA4,     SA4,     KC_EQL,       SJ4,     CK4,     AL4,   GQ4,     KC_NO,  KC_NO,
+
+        KC_NO, KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,      KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO,  KC_NO,
+
                                  KC_NO,   KC_0,    KC_MINS,      KC_NO,   KC_NO,   KC_NO
     )
 };
