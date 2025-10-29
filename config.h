@@ -35,5 +35,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Combos
 #undef COMBO_TERM
-#define COMBO_TERM 80
+#define COMBO_TERM 36
 #define EXTRA_SHORT_COMBOS // 6 keys
