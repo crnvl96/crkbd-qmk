@@ -54,10 +54,10 @@
 #define AL3 RALT_T(KC_TRANSPARENT)
 #define GQ3 RGUI_T(KC_TRANSPARENT)
 
-#define GA4 LGUI_T(KC_TRANSPARENT)
-#define AA4 LALT_T(KC_TRANSPARENT)
-#define CA4 LCTL_T(KC_TRANSPARENT)
-#define SA4 LSFT_T(KC_TRANSPARENT)
+#define GA4 LGUI_T(KC_SCLN)
+#define AA4 LALT_T(KC_4)
+#define CA4 LCTL_T(KC_5)
+#define SA4 LSFT_T(KC_6)
 
 // Thumb key aliases
 #define TAB1 LT(1, KC_TAB)
